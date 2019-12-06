@@ -1,0 +1,11 @@
+st:
+	libx11-dev libxft-dev libxinerama-dev
+
+getxkblayout:
+	libxkbfile-dev
+
+i3status:
+	libconfuse-dev libyajl-dev libasound2-dev libiw-dev libpulse-dev libnl-genl-3-dev asciidoc xmlto
+
+solvespace:
+	libcairo2-dev libgl-dev libglu1-mesa-dev libjson-c-dev libpangomm-1.4-dev libgtkmm-3.0-dev
