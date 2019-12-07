@@ -1,0 +1,27 @@
+From 536240f8b8ab2ae59535e6606e6fe6d452fec835 Mon Sep 17 00:00:00 2001
+From: nabijaczleweli <nabijaczleweli@gmail.com>
+Date: Fri, 17 Jan 2020 01:21:39 +0100
+Subject: Properly mark Del as [P in terminfo
+
+This removes the the need for an .inputrc, but also makes vim treat Del
+as Swap Case Of Current Character
+---
+ st.info | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/st.info b/st.info
+index 78ffd30..6a4909c 100644
+--- a/st.info
++++ b/st.info
+@@ -74,7 +74,7 @@ st| simpleterm,
+ 	kri=\E[1;2A,
+ 	kclr=\E[3;5~,
+ 	kdl1=\E[3;2~,
+-	kdch1=\E[3~,
++	kdch1=\E[P,
+ 	kich1=\E[2~,
+ 	kend=\E[4~,
+ 	kf1=\EOP,
+--
+2.25.0
+
