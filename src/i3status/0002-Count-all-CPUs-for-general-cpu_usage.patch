@@ -1,0 +1,33 @@
+From fdc22cd57f68452158767784b03bea972f7b4c59 Mon Sep 17 00:00:00 2001
+From: nabijaczleweli <nabijaczleweli@gmail.com>
+Date: Sun, 19 Jan 2020 17:34:25 +0100
+Subject: [PATCH] Count all CPUs for general cpu_usage
+
+---
+ src/print_cpu_usage.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/src/print_cpu_usage.c b/src/print_cpu_usage.c
+index 3a0bb35..89bb366 100644
+--- a/src/print_cpu_usage.c
++++ b/src/print_cpu_usage.c
+@@ -177,7 +177,15 @@ void print_cpu_usage(yajl_gen json_gen, char *buffer, const char *format, const
+             *(outwalk++) = *walk;
+ 
+         } else if (BEGINS_WITH(walk + 1, "usage")) {
+-            outwalk += sprintf(outwalk, "%d%s", diff_usage, pct_mark);
++            // outwalk += sprintf(outwalk, "%d%s", diff_usage, pct_mark);
++            int total_usage = 0;
++            for(int number = 0; number < cpu_count; ++number) {
++                int cpu_diff_idle = curr_cpus[number].idle - prev_cpus[number].idle;
++                int cpu_diff_total = curr_cpus[number].total - prev_cpus[number].total;
++                int cpu_diff_usage = (cpu_diff_total ? (1000 * (cpu_diff_total - cpu_diff_idle) / cpu_diff_total + 5) / 10 : 0);
++                total_usage += cpu_diff_usage;
++            }
++            outwalk += sprintf(outwalk, "%d%s", total_usage, pct_mark);
+             walk += strlen("usage");
+         }
+ #if defined(__linux__)
+-- 
+2.25.0
+
