@@ -50,3 +50,10 @@ The following patches to [`st`](http://st.suckless.org):
 ### [`bin/idle-suspend`](bin/idle-suspend)
 
 Wait the specified delay, then, if the idle time of `$DISPLAY` is greater therethan, suspend the machine, e.g. for use with `xss-lock`.
+
+
+### [`bin/i3status++`](bin/i3status++)
+
+Wraps `i3status` in `i3bar` mode modifying the status line as follows:
+  * the current keyboard layout to the left of `tztime`
+  * the current power draw from `BAT1` at the end of its sexion

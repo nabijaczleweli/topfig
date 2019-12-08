@@ -1,0 +1,12 @@
+#!/bin/bash
+
+
+i3status |
+while read line
+do
+	# echo "$line" 1>&2
+	echo "$line" | \
+		sed -re 's/,\{"name":"tztime"/,\{"name":"xkblayout","markup":"none","full_text":"'"$(getxkblayout)"'"}&/' \
+		     -e 's/"}]/ "}]/' \
+		     -e 's;(\{"name":"battery","instance":"/sys/class/power_supply/BAT1/uevent","markup":"none","full_text":"[^"]+)("\});\1 '"$(echo "scale=1;$(cat /sys/class/power_supply/BAT1/current_now)*$(cat /sys/class/power_supply/BAT1/voltage_now)/1000^4" | bc)W"'\2;' || exit 1
+done
