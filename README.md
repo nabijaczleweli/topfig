@@ -25,12 +25,12 @@ The following patches to [`i3status`](https://github.com/i3/i3status):
    this replaces that behaviour with `%d`.
 2. [`0002-Count-all-CPUs-for-general-cpu_usage.patch`](src/i3status/0002-Count-all-CPUs-for-general-cpu_usage.patch):
    `cpu_usage` of all CPUs is scaled between 0-100 by default,
-   this replaces that behaviour with summing each CPU's load together instead for a scaling of 0-ncpus\*100.
+   this replaces that behaviour with summing each CPU's load together instead for a scaling of 0-(ncpus\*100).
 
 
 ### [`src/st`](src/st)
 
-The following patches to [`st`](st.suckless.org):
+The following patches to [`st`](http://st.suckless.org):
 
 1. [`0001-boxdraw_v2-custom-render-lines-blocks-braille-for-pe.patch`](src/st/0001-boxdraw_v2-custom-render-lines-blocks-braille-for-pe.patch):
    [boxdraw (0.8.2)](http://st.suckless.org/patches/boxdraw) patch, plus `boxdraw = 1` config.
@@ -45,3 +45,8 @@ The following patches to [`st`](st.suckless.org):
    marks Del as `kdch1` in terminfo making bash handle it correctly without a `.inputrc`, but breaks vim for some reason.
 4. [`0004-Use-default-monospace-font.patch`](src/st/0004-Use-default-monospace-font.patch):
    use request monospace font instead of Liberation Mono.
+
+
+### [`bin/idle-suspend`](bin/idle-suspend)
+
+Wait the specified delay, then, if the idle time of `$DISPLAY` is greater therethan, suspend the machine, e.g. for use with `xss-lock`.

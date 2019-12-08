@@ -1,0 +1,22 @@
+#!/bin/bash
+
+
+delay_ms="$1"
+
+if [[ -z "$delay_ms" ]]; then
+	echo "Usage: $0 [idle delay in milliseconds]" 1>&2
+	exit 1
+fi
+
+
+trap 'exit 0' TERM INT
+
+xssstate -i
+date
+sleep $(echo "scale=4;$delay_ms/1000" | bc)
+
+date
+xssstate -i
+if [[ "$(xssstate -i)" -gt "$delay_ms" ]]; then
+	systemctl suspend
+fi
