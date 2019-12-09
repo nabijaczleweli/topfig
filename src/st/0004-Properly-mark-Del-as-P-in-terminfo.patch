@@ -1,4 +1,4 @@
-From 536240f8b8ab2ae59535e6606e6fe6d452fec835 Mon Sep 17 00:00:00 2001
+From 4e1e522581e9480eee3a6e1f72ea30dd6630d400 Mon Sep 17 00:00:00 2001
 From: nabijaczleweli <nabijaczleweli@gmail.com>
 Date: Fri, 17 Jan 2020 01:21:39 +0100
 Subject: Properly mark Del as [P in terminfo

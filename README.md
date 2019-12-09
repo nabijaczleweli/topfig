@@ -41,9 +41,11 @@ The following patches to [`st`](http://st.suckless.org):
     * `st-scrollback-mouse-20191024-a2c479c.diff`
     * `st-scrollback-mouse-altscreen-20191024-a2c479c.diff`
     * `st-scrollback-mouse-increment-0.8.2.diff`
-3. [`0003-Properly-mark-Del-as-P-in-terminfo.patch`](src/st/0003-Properly-mark-Del-as-P-in-terminfo.patch):
+3. [`0003-Apply-ISO-14755-patch.patch`](src/st/0003-Apply-ISO-14755-patch.patch):
+   [ISO 14755](http://st.suckless.org/patches/iso14755/st-iso14755-20180911-67d0cb6.diff) patch.
+3. [`0004-Properly-mark-Del-as-P-in-terminfo.patch`](src/st/0004-Properly-mark-Del-as-P-in-terminfo.patch):
    marks Del as `kdch1` in terminfo making bash handle it correctly without a `.inputrc`, but breaks vim for some reason.
-4. [`0004-Use-default-monospace-font.patch`](src/st/0004-Use-default-monospace-font.patch):
+4. [`0005-Use-default-monospace-font.patch`](src/st/0005-Use-default-monospace-font.patch):
    use request monospace font instead of Liberation Mono.
 
 
