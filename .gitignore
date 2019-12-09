@@ -1,7 +1,11 @@
 *
-!src/
-!src/**
 !bin/
 !bin/**
+!src/
+!src/**
+!.config/
+!.config/**
+!screenshots/
+!screenshots/**
 !.git*
 !README.md

@@ -57,3 +57,15 @@ Wait the specified delay, then, if the idle time of `$DISPLAY` is greater theret
 Wraps `i3status` in `i3bar` mode modifying the status line as follows:
   * the current keyboard layout to the left of `tztime`
   * the current power draw from `BAT1` at the end of its sexion
+
+
+### [`.config/i3`](.config/i3), [`.config/i3status`](.config/i3status)
+
+i3 and i3status config, of note:
+  * suspend after three minutes of inactivity via [`idle-suspend`](#binidle-suspend)
+  * [`i3status++`](#bini3status)-based bar
+  * media-key-based brightness adjust via [`adjust-screen-brightness`](#srcadjust-screen-brightnessrs)
+  * [`.config/i3/app-icons.json`](.config/i3/app-icons.json) for [`i3-workspace-names-daemon`](https://github.com/cboddy/i3-workspace-names-daemon)
+  * [baba is uwu](https://wiittyusername.tumblr.com/post/183597057765/baba-is-uwu)-based colour scheme:
+
+![i3 screenshot](screenshots/2020-01-29-18:39:36-nabtop-1280x800.png)
