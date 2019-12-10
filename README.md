@@ -68,6 +68,6 @@ i3 and i3status config, of note:
   * [`i3status++`](#bini3status)-based bar
   * media-key-based brightness adjust via [`adjust-screen-brightness`](#srcadjust-screen-brightnessrs)
   * [`.config/i3/app-icons.json`](.config/i3/app-icons.json) for [`i3-workspace-names-daemon`](https://github.com/cboddy/i3-workspace-names-daemon)
-  * [baba is uwu](https://wiittyusername.tumblr.com/post/183597057765/baba-is-uwu)-based colour scheme:
+  * [baba is uwu](https://wiittyusername.tumblr.com/post/183597057765/baba-is-uwu)-inspired colour scheme:
 
-![i3 screenshot](screenshots/2020-01-29-18:39:36-nabtop-1280x800.png)
+[![i3 screenshot](screenshots/2020-01-29-18:39:36-nabtop-1280x800.png)](https://raw.githubusercontent.com/nabijaczleweli/topfig/master/screenshots/2020-01-29-18%3A39%3A36-nabtop-1280x800.png)
