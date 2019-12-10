@@ -105,21 +105,21 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym Left  resize shrink width  10 px or 10 ppt
-        bindsym Up    resize grow   height 10 px or 10 ppt
-        bindsym Down  resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow   width  10 px or 10 ppt
+    # Pressing left  will shrink the window’s width.
+    # Pressing right will grow   the window’s width.
+    # Pressing up    will shrink the window’s height.
+    # Pressing down  will grow   the window’s height.
+    bindsym Left  resize shrink width  10 px or 10 ppt
+    bindsym Up    resize grow   height 10 px or 10 ppt
+    bindsym Down  resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow   width  10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+    # back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -130,7 +130,7 @@ bar {
     status_command i3status++
     separator_symbol "|"
 
-   colors {
+    colors {
         # background #000000
         # statusline #acacac
         # separator  #444444
@@ -141,7 +141,7 @@ bar {
         # inactive_workspace #222222 #161616 #5B5B5B
         urgent_workspace   #be63fa #c507a3 #DCDCDC
         # binding_mode       #1F2327 #610000 #ACACAC
-   }
+    }
 }
 
 

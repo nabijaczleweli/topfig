@@ -1,0 +1,278 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+set $alt Mod1
+
+# Default font
+font pango:DejaVu Sans Mono 8
+
+### Output configuration
+#
+output * bg ~/.backgrounds/baba.gif fit #0A051B
+#
+# Example configuration:
+#
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+### Idle configuration
+#
+# Disable screen after 1min, lock it after 2min, suspend after 3min
+# Only allow explicit locking via swayidle and on suspend
+exec light-locker --lock-after-screensaver=0 --no-late-locking --no-lock-on-lid
+exec swayidle -w                                    \
+        timeout 60   'swaymsg "output * dpms off"'  \
+        timeout 120  'loginctl lock-session'        \
+        timeout 180  'systemctl suspend'            \
+        resume       'swaymsg "output * dpms on"'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+### Input configuration
+#
+input type:touchpad {
+    tap enabled
+}
+
+input type:keyboard {
+    xkb_layout  pl,ru
+    xkb_variant   ,phonetic_yazherty
+    xkb_options grp:alt_shift_toggle
+}
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@   +10%   && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@   -10%   && $refresh_i3status
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   @DEFAULT_SINK@   toggle && $refresh_i3status
+bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+### Key bindings
+#
+# Basics:
+#
+    # Start a terminal
+    bindsym $mod+Return exec x-terminal-emulator
+
+    # Kill focused window
+    bindsym $mod+Shift+q kill
+
+    # Start your launcher
+    # Note: pass the final command to swaymsg so that the resulting window can be opened
+    # on the original workspace that the command was run on.
+    bindsym $mod+d exec dmenu_path | dmenu | xargs swaymsg exec --
+    # There also is the (new) i3-dmenu-desktop which only displays applications
+    # shipping a .desktop file. It is a wrapper around dmenu, so you need that
+    # installed.
+    bindsym $mod+Shift+d exec i3-dmenu-desktop
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    # Restart sway in-place
+    bindsym $mod+Shift+r restart
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+Left  focus left
+    bindsym $mod+Down  focus down
+    bindsym $mod+Up    focus up
+    bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+Left  move left
+    bindsym $mod+Shift+Down  move down
+    bindsym $mod+Shift+Up    move up
+    bindsym $mod+Shift+Right move right
+#
+# Workspaces:
+#
+    # Switch to workspace
+    bindsym $mod+1 workspace 1
+    bindsym $mod+2 workspace 2
+    bindsym $mod+3 workspace 3
+    bindsym $mod+4 workspace 4
+    bindsym $mod+5 workspace 5
+    bindsym $mod+6 workspace 6
+    bindsym $mod+7 workspace 7
+    bindsym $mod+8 workspace 8
+    bindsym $mod+9 workspace 9
+    bindsym $mod+0 workspace 10
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace 1
+    bindsym $mod+Shift+2 move container to workspace 2
+    bindsym $mod+Shift+3 move container to workspace 3
+    bindsym $mod+Shift+4 move container to workspace 4
+    bindsym $mod+Shift+5 move container to workspace 5
+    bindsym $mod+Shift+6 move container to workspace 6
+    bindsym $mod+Shift+7 move container to workspace 7
+    bindsym $mod+Shift+8 move container to workspace 8
+    bindsym $mod+Shift+9 move container to workspace 9
+    bindsym $mod+Shift+0 move container to workspace 10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+h splith
+    bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+#
+# Resizing containers:
+#
+mode "resize" {
+    # left  will shrink the container's width
+    # right will grow   the container's width
+    # up    will shrink the container's height
+    # down  will grow   the container's height
+    bindsym Left  resize shrink width  10px
+    bindsym Down  resize grow   height 10px
+    bindsym Up    resize shrink height 10px
+    bindsym Right resize grow   width  10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    status_command i3status++
+    # separator_symbol "|"
+
+    colors {
+        # statusline #ffffff
+        # background #323232
+        # inactive_workspace #32323200 #32323200 #5c5c5c
+
+        # background #000000
+        # statusline #acacac
+        # separator  #444444
+
+        #                   border  background text
+        focused_workspace  #84046D #84046D #ACACAC
+        # active_workspace   #222222 #404547 #ACACAC
+        # inactive_workspace #222222 #161616 #5B5B5B
+        urgent_workspace   #be63fa #c507a3 #DCDCDC
+        # binding_mode       #1F2327 #610000 #ACACAC
+    }
+}
+
+
+#bindsym $alt+Tab workspace next_on_output
+#bindsym $alt+Shift+Tab workspace prev_on_output
+bindsym $mod+Tab workspace next_on_output
+bindsym $mod+Shift+Tab workspace prev_on_output
+# bindsym $alt+Tab focus right
+# bindsym $alt+Shift+Tab focus left
+# exec --no-startup-id volctl
+exec --no-startup-id nitrogen --restore
+
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l       exec loginctl  lock-session, mode "default"
+    bindsym e       exec i3-msg    exit,         mode "default"
+    bindsym s       exec systemctl suspend,      mode "default"
+    bindsym h       exec systemctl hibernate,    mode "default"
+    bindsym r       exec systemctl reboot,       mode "default"
+    bindsym Shift+s exec systemctl poweroff -i,  mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Pause mode "$mode_system"
+
+
+workspace_auto_back_and_forth yes
+
+bindsym $alt+Control+Sys_Req exec cd screenshots && grim -g "$(slurp)"
+bindsym         $alt+Sys_Req exec cd screenshots && grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')"
+bindsym                Print exec cd screenshots && grim
+
+# keycode 244 (keysym 0x1008ff93, XF86Battery), same_screen YES,
+bindsym XF86ScreenSaver exec loginctl lock-session
+bindsym XF86Battery     output * dpms off    # Fn+F2
+
+bindsym XF86MonBrightnessDown exec adjust-screen-brightness -1
+bindsym XF86MonBrightnessUp   exec adjust-screen-brightness +1
+
+bindsym Control+$mod+Right move workspace to output right
+bindsym Control+$mod+Left  move workspace to output left
+bindsym Control+$mod+Up    move workspace to output up
+bindsym Control+$mod+Down  move workspace to output down
+
+# https://github.com/cboddy/i3-workspace-names-daemon
+# exec_always i3-workspace-names-daemon -u -d " "
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #84046D #84046D #ffffff #be63fa   #84046D
+client.focused_inactive #331633 #5f2D6a #ffffff #483450   #5f446a
+client.unfocused        #1d1236 #0a051b #888888 #292d2e   #0a051b
+client.urgent           #2f343a #c507a3 #ffffff #c507a3   #c507a3
+# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+include /usr/local/etc/sway/config.d/*

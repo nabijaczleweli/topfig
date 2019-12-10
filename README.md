@@ -1,5 +1,5 @@
 # topfig [![Licence](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
-Assorted config/tooling/lube from the nabtop
+Assorted config/tooling/lube from the [nabtop](https://twitter.com/nabijaczleweli/status/1213277562434142211)
 
 
 ### [`src/adjust-screen-brightness.rs`](src/adjust-screen-brightness.rs)
@@ -71,3 +71,12 @@ i3 and i3status config, of note:
   * [baba is uwu](https://wiittyusername.tumblr.com/post/183597057765/baba-is-uwu)-inspired colour scheme:
 
 [![i3 screenshot](screenshots/2020-01-29-18:39:36-nabtop-1280x800.png)](https://raw.githubusercontent.com/nabijaczleweli/topfig/master/screenshots/2020-01-29-18%3A39%3A36-nabtop-1280x800.png)
+
+
+### [`.config/sway`](.config/sway)
+
+[sway](https://github.com/swaywm/sway) config mirroring the above X/i3 setup.
+
+However, at the time of writing (2020-01-31 19:10:55), two issues prevent me from switching to sway:
+  * the window bars are padded around the text signiifcantly more than in i3 (am i being a diva about this? probably; does it bother me? yes; could i patch sway to fix it? maybe, however)
+  * [SolveSpace](http://solvespace.com) not creating GL context

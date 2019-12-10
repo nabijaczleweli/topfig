@@ -9,3 +9,6 @@ i3status:
 
 solvespace:
 	libcairo2-dev libgl-dev libglu1-mesa-dev libjson-c-dev libpangomm-1.4-dev libgtkmm-3.0-dev
+
+https://github.com/swaywm/sway/wiki/Debian-10-(Buster)-Installation:
+	libdrm-dev libgbm-dev libinput-dev libsystemd-dev libx11-xcb-dev libcap-dev libxcb-composite0-dev libxcb-icccm4-dev libxcb-icccm4-dev libxcb-xinput-dev libavutil-dev libavcodec-dev libavformat-dev
