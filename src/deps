@@ -12,3 +12,6 @@ solvespace:
 
 https://github.com/swaywm/sway/wiki/Debian-10-(Buster)-Installation:
 	libdrm-dev libgbm-dev libinput-dev libsystemd-dev libx11-xcb-dev libcap-dev libxcb-composite0-dev libxcb-icccm4-dev libxcb-icccm4-dev libxcb-xinput-dev libavutil-dev libavcodec-dev libavformat-dev
+
+dracut:
+	libkmod-dev

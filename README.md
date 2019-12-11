@@ -49,6 +49,27 @@ The following patches to [`st`](http://st.suckless.org):
    use request monospace font instead of Liberation Mono.
 
 
+## [`src/dracut`](src/dracut)
+
+dracut has a long-standing (2013! – https://github.com/dracutdevs/dracut/commit/34b56de12aad622d602d6e3bd434e02c840f1cd0)
+  issue wherein in order to enable the resume module it needs to find a swap *partition*,
+  which is unideal in environments that use swap files exclusively.
+
+There's an open issue from 2018 in the dracut repository – https://github.com/dracutdevs/dracut/issues/496 – mentioning this,
+  but going by the stagnation and two separate maintainers saying swap files are a bad idea and/or doubting the kernel supports them,
+  it will not be resolved any time soon,
+
+The diff present in [`src/dracut/debian_resume-file`](src/dracut/debian_resume-file) can be applied to `/usr/lib/dracut/modules.d/95resume/module-setup.sh` in order to also check for the presence of any swap-files activated in `/proc/swaps`.
+
+Alternatively, if you prefer, and are in the mood for building some packages, it can also be used in `debian/patches` – see [here](https://github.com/nabijaczleweli/dracut) for a clonable repo (and [Debian wiki](https://wiki.debian.org/PackagingWithGit) for building).
+
+If you aren't, see [the releases page](https://github.com/nabijaczleweli/dracut/releases/latest) for installable i386 and amd64 debs or add these repositories to your `sources.list`, signed with [my key](https://keybase.io/nabijaczleweli) (also available [here](https://foreign.nabijaczleweli.xyz/debian/nabijaczleweli.gpg.key)):
+
+```
+deb https://foreign.nabijaczleweli.xyz/debian sid patches
+deb-src https://foreign.nabijaczleweli.xyz/debian sid patches
+```
+
 ### [`bin/idle-suspend`](bin/idle-suspend)
 
 Wait the specified delay, then, if the idle time of `$DISPLAY` is greater therethan, suspend the machine, e.g. for use with `xss-lock`.
@@ -84,7 +105,7 @@ However, at the time of writing (2020-01-31 19:10:55), two issues prevent me fro
 
 ### [`.config/htop`](.config/htop/htoprc)
 
-`htop` config, of [@ThePhD](https://github.com/ThePhD/dotfiles/commit/e64186c944b5f08ac9e0e2a8498498dccbd22707) fame, laptopified.
+`htop` config, of [**@ThePhD**](https://github.com/ThePhD/dotfiles/commit/e64186c944b5f08ac9e0e2a8498498dccbd22707) fame, laptopified.
 
 [![htop screenshot 1](screenshots/htop-647541072033218611.png)](https://raw.githubusercontent.com/nabijaczleweli/topfig/master/screenshots/htop-647541072033218611.png)
 [![htop screenshot 2](screenshots/htop-647540165316968467.png)](https://raw.githubusercontent.com/nabijaczleweli/topfig/master/screenshots/htop-647540165316968467.png)
