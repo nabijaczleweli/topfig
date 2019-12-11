@@ -80,3 +80,11 @@ i3 and i3status config, of note:
 However, at the time of writing (2020-01-31 19:10:55), two issues prevent me from switching to sway:
   * the window bars are padded around the text signiifcantly more than in i3 (am i being a diva about this? probably; does it bother me? yes; could i patch sway to fix it? maybe, however)
   * [SolveSpace](http://solvespace.com) not creating GL context
+
+
+### [`.config/htop`](.config/htop/htoprc)
+
+`htop` config, of [@ThePhD](https://github.com/ThePhD/dotfiles/commit/e64186c944b5f08ac9e0e2a8498498dccbd22707) fame, laptopified.
+
+[![htop screenshot 1](screenshots/htop-647541072033218611.png)](https://raw.githubusercontent.com/nabijaczleweli/topfig/master/screenshots/htop-647541072033218611.png)
+[![htop screenshot 2](screenshots/htop-647540165316968467.png)](https://raw.githubusercontent.com/nabijaczleweli/topfig/master/screenshots/htop-647540165316968467.png)
