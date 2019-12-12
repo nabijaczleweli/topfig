@@ -51,15 +51,15 @@ The following patches to [`st`](http://st.suckless.org):
 
 ## [`src/dracut`](src/dracut)
 
-dracut has a long-standing (2013! – https://github.com/dracutdevs/dracut/commit/34b56de12aad622d602d6e3bd434e02c840f1cd0)
+dracut has a long-standing (2013! – [dracutdevs/dracut@`34b56de`](https://github.com/dracutdevs/dracut/commit/34b56de12aad622d602d6e3bd434e02c840f1cd0))
   issue wherein in order to enable the resume module it needs to find a swap *partition*,
   which is unideal in environments that use swap files exclusively.
 
-There's an open issue from 2018 in the dracut repository – https://github.com/dracutdevs/dracut/issues/496 – mentioning this,
+There's an open issue from 2018 in the dracut repository – [dracutdevs/dracut#496](https://github.com/dracutdevs/dracut/issues/496) – mentioning this,
   but going by the stagnation and two separate maintainers saying swap files are a bad idea and/or doubting the kernel supports them,
   it will not be resolved any time soon,
 
-The diff present in [`src/dracut/debian_resume-file`](src/dracut/debian_resume-file) can be applied to `/usr/lib/dracut/modules.d/95resume/module-setup.sh` in order to also check for the presence of any swap-files activated in `/proc/swaps`.
+The diff present in [`src/dracut/debian_patches_resume-file`](src/dracut/debian_patches_resume-file) can be applied to `/usr/lib/dracut/modules.d/95resume/module-setup.sh` in order to also check for the presence of any swap-files activated in `/proc/swaps`.
 
 Alternatively, if you prefer, and are in the mood for building some packages, it can also be used in `debian/patches` – see [here](https://github.com/nabijaczleweli/dracut) for a clonable repo (and [Debian wiki](https://wiki.debian.org/PackagingWithGit) for building).
 
@@ -103,7 +103,7 @@ However, at the time of writing (2020-01-31 19:10:55), two issues prevent me fro
   * [SolveSpace](http://solvespace.com) not creating GL context
 
 
-### [`.config/htop`](.config/htop/htoprc)
+### [`.config/htop`](.config/htop)
 
 `htop` config, of [**@ThePhD**](https://github.com/ThePhD/dotfiles/commit/e64186c944b5f08ac9e0e2a8498498dccbd22707) fame, laptopified.
 

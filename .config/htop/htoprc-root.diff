@@ -1,0 +1,12 @@
+diff --git a/user.htoprc b/root.htoprc
+index 789167b..2055117 100644
+--- a/user.htoprc
++++ b/root.htoprc
+@@ -1,6 +1,6 @@
+ # Beware! This file is rewritten by htop when settings are changed in the interface.
+ # The parser is also very primitive, and not human-friendly.
+-fields=0 48 17 18 37 39 40 2 46 47 49 1
++fields=0 48 17 18 102 103 39 40 2 46 47 49 1
+ sort_key=46
+ sort_direction=1
+ hide_threads=0
