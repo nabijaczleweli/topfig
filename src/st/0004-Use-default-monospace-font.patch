@@ -1,7 +1,7 @@
-From e0503e9ffd3d4874168e1792aada4ec966cc3003 Mon Sep 17 00:00:00 2001
+From 6e893c518d2cb1f2b592fd7a0d5c3bb484693f88 Mon Sep 17 00:00:00 2001
 From: nabijaczleweli <nabijaczleweli@gmail.com>
 Date: Sat, 18 Jan 2020 19:11:37 +0100
-Subject: Use default monospace font
+Subject: [PATCH 4/4] Use default monospace font
 
 ---
  config.def.h | 2 +-
@@ -18,8 +18,8 @@ index 7cd4c2c..3a0aa69 100644
 -static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
 +static char *font = "monospace:pixelsize=12:antialias=true:autohint=true";
  static int borderpx = 2;
-
+ 
  /*
---
-2.25.0
+-- 
+2.25.1
 

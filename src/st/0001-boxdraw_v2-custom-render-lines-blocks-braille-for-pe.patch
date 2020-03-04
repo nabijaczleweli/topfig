@@ -1,7 +1,8 @@
 From bd5d2b1af3b0ac1d3463586030a80b3e030894c9 Mon Sep 17 00:00:00 2001
 From: "Avi Halachmi (:avih)" <avihpit@yahoo.com>
 Date: Wed, 26 Dec 2018 14:51:45 +0200
-Subject: boxdraw_v2: custom render lines/blocks/braille for perfect alignment
+Subject: [PATCH 1/4] boxdraw_v2: custom render lines/blocks/braille for
+ perfect alignment
 
 It seems impossible to ensure that blocks and line drawing glyphs
 align without visible gaps for all combinations of arbitrary font,
@@ -36,22 +37,22 @@ index 470ac86..6dfa212 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -4,7 +4,7 @@
-
+ 
  include config.mk
-
+ 
 -SRC = st.c x.c
 +SRC = st.c x.c boxdraw.c
  OBJ = $(SRC:.c=.o)
-
+ 
  all: options st
 @@ -23,6 +23,7 @@ config.h:
-
+ 
  st.o: config.h st.h win.h
  x.o: arg.h config.h st.h win.h
 +boxdraw.o: config.h st.h boxdraw_data.h
-
+ 
  $(OBJ): config.h config.mk
-
+ 
 diff --git a/boxdraw.c b/boxdraw.c
 new file mode 100644
 index 0000000..28a92d0
@@ -479,7 +480,7 @@ index 546edda..9470917 100644
 @@ -56,6 +56,18 @@ static unsigned int blinktimeout = 800;
   */
  static unsigned int cursorthickness = 2;
-
+ 
 +/*
 + * 1: render most of the lines/blocks characters without using the font for
 + *    perfect alignment between cells (U2500 - U259F except dashes/diagonals).
@@ -507,7 +508,7 @@ index 3e48410..699f8f9 100644
 +	if (isboxdraw(u))
 +		term.line[y][x].mode |= ATTR_BOXDRAW;
  }
-
+ 
  void
 diff --git a/st.h b/st.h
 index a1928ca..27e7050 100644
@@ -520,11 +521,11 @@ index a1928ca..27e7050 100644
 +	ATTR_BOXDRAW    = 1 << 11,
  	ATTR_BOLD_FAINT = ATTR_BOLD | ATTR_FAINT,
  };
-
+ 
 @@ -111,6 +112,14 @@ void *xmalloc(size_t);
  void *xrealloc(void *, size_t);
  char *xstrdup(char *);
-
+ 
 +int isboxdraw(Rune);
 +ushort boxdrawindex(const Glyph *);
 +#ifdef XFT_VERSION
@@ -552,12 +553,12 @@ index e000894..38d37e9 100644
 +
 +	boxdraw_xinit(xw.dpy, xw.cmap, xw.draw, xw.vis);
  }
-
+ 
  int
 @@ -1211,8 +1213,13 @@ xmakeglyphfontspecs(XftGlyphFontSpec *specs, const Glyph *glyphs, int len, int x
  			yp = winy + font->ascent;
  		}
-
+ 
 -		/* Lookup character index with default font. */
 -		glyphidx = XftCharIndex(xw.dpy, font->match, rune);
 +		if (mode & ATTR_BOXDRAW) {
@@ -573,7 +574,7 @@ index e000894..38d37e9 100644
 @@ -1416,8 +1423,12 @@ xdrawglyphfontspecs(const XftGlyphFontSpec *specs, Glyph base, int len, int x, i
  	r.width = width;
  	XftDrawSetClipRectangles(xw.draw, winx, winy, &r, 1);
-
+ 
 -	/* Render the glyphs. */
 -	XftDrawGlyphFontSpec(xw.draw, fg, specs, len);
 +	if (base.mode & ATTR_BOXDRAW) {
@@ -582,7 +583,7 @@ index e000894..38d37e9 100644
 +		/* Render the glyphs. */
 +		XftDrawGlyphFontSpec(xw.draw, fg, specs, len);
 +	}
-
+ 
  	/* Render underline and strikethrough. */
  	if (base.mode & ATTR_UNDERLINE) {
 @@ -1460,7 +1471,7 @@ xdrawcursor(int cx, int cy, Glyph g, int ox, int oy, Glyph og)
@@ -591,9 +592,9 @@ index e000894..38d37e9 100644
  	 */
 -	g.mode &= ATTR_BOLD|ATTR_ITALIC|ATTR_UNDERLINE|ATTR_STRUCK|ATTR_WIDE;
 +	g.mode &= ATTR_BOLD|ATTR_ITALIC|ATTR_UNDERLINE|ATTR_STRUCK|ATTR_WIDE|ATTR_BOXDRAW;
-
+ 
  	if (IS_SET(MODE_REVERSE)) {
  		g.mode |= ATTR_REVERSE;
---
-2.25.0
+-- 
+2.25.1
 
