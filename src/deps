@@ -15,3 +15,12 @@ https://github.com/swaywm/sway/wiki/Debian-10-(Buster)-Installation:
 
 dracut:
 	libkmod-dev
+
+cmus:
+	libncurses-dev
+
+systemd:
+	gperf gnu-efi libpam0g-dev libapparmor-dev libidn2-dev libiptc-dev libaudit-dev libcryptsetup-dev libacl1-dev liblzma-dev liblz4-tool libbz2-dev libcurl4-gnutls-dev libmicrohttpd-dev libgnutls28-dev libgcrypt20-dev libseccomp-dev libdw-dev libpolkit-gobject-1-dev acl python3-evdev
+
+reprepo:
+	libgpgme-dev libdb-dev libarchive-dev shunit2 db-util

@@ -10,5 +10,7 @@
 	"st-256color": "terminal",
 	"sublime_text": "edit",
 	"pavucontrol": "volume-up",
-	"mplayer": "play"
+	"mplayer": "play",
+	"lxpolkit": "id-badge",
+	"pinentry": "key"
 }
