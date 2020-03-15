@@ -1,7 +1,7 @@
-From 3999a486fc0fbe844f9f88d7fb5e5c0e51c61742 Mon Sep 17 00:00:00 2001
+From 7c4ea106db37ff1979a6ad9b2cf526b4a276eceb Mon Sep 17 00:00:00 2001
 From: nabijaczleweli <nabijaczleweli@gmail.com>
 Date: Tue, 14 Jan 2020 06:09:34 +0100
-Subject: Don't pad CPU usage to 2 characters
+Subject: [PATCH 1/2] Don't pad CPU usage to 2 characters
 
 ---
  src/print_cpu_usage.c | 4 ++--
@@ -13,7 +13,7 @@ index 979e082..3a0bb35 100644
 +++ b/src/print_cpu_usage.c
 @@ -177,7 +177,7 @@ void print_cpu_usage(yajl_gen json_gen, char *buffer, const char *format, const
              *(outwalk++) = *walk;
-
+ 
          } else if (BEGINS_WITH(walk + 1, "usage")) {
 -            outwalk += sprintf(outwalk, "%02d%s", diff_usage, pct_mark);
 +            outwalk += sprintf(outwalk, "%d%s", diff_usage, pct_mark);
@@ -29,6 +29,6 @@ index 979e082..3a0bb35 100644
              }
              int padding = 1;
              int step = 10;
---
-2.25.0
+-- 
+2.25.1
 

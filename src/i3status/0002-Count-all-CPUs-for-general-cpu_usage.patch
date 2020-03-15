@@ -1,7 +1,7 @@
-From fdc22cd57f68452158767784b03bea972f7b4c59 Mon Sep 17 00:00:00 2001
+From 2cdc9803e74f8a9466a37b719fb8a630802fbd9d Mon Sep 17 00:00:00 2001
 From: nabijaczleweli <nabijaczleweli@gmail.com>
 Date: Sun, 19 Jan 2020 17:34:25 +0100
-Subject: [PATCH] Count all CPUs for general cpu_usage
+Subject: [PATCH 2/2] Count all CPUs for general cpu_usage
 
 ---
  src/print_cpu_usage.c | 10 +++++++++-
@@ -29,5 +29,5 @@ index 3a0bb35..89bb366 100644
          }
  #if defined(__linux__)
 -- 
-2.25.0
+2.25.1
 
