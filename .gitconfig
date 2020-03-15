@@ -1,0 +1,24 @@
+[push]
+	default = "simple"
+[user]
+	signingkey = 8D2658F1
+	email = nabijaczleweli@gmail.com
+	name = nabijaczleweli
+[color]
+	ui = auto
+[credential]
+	helper = store
+[core]
+	longPaths = true
+	fscache = true
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
+[alias]
+	diffs = diff --staged
+	camend = commit --amend
+[log]
+	showSignature = true
+[mergetool]
+	keepBackup = false
