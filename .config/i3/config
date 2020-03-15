@@ -145,9 +145,9 @@ bar {
 }
 
 
-#bindsym $alt+Tab workspace next_on_output
+#bindsym $alt+Tab workspace       next_on_output
 #bindsym $alt+Shift+Tab workspace prev_on_output
-bindsym $mod+Tab workspace next_on_output
+bindsym $mod+Tab workspace       next_on_output
 bindsym $mod+Shift+Tab workspace prev_on_output
 # bindsym $alt+Tab focus right
 # bindsym $alt+Shift+Tab focus left

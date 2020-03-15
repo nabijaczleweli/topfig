@@ -1,4 +1,4 @@
-From 6e893c518d2cb1f2b592fd7a0d5c3bb484693f88 Mon Sep 17 00:00:00 2001
+From 91390c364be16daaea38e2926f3a68e13a245192 Mon Sep 17 00:00:00 2001
 From: nabijaczleweli <nabijaczleweli@gmail.com>
 Date: Sat, 18 Jan 2020 19:11:37 +0100
 Subject: [PATCH 4/4] Use default monospace font

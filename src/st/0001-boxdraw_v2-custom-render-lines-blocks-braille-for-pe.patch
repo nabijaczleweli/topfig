@@ -1,4 +1,4 @@
-From bd5d2b1af3b0ac1d3463586030a80b3e030894c9 Mon Sep 17 00:00:00 2001
+From e47ab98848d3b5eafa2057edd35d2543760207b2 Mon Sep 17 00:00:00 2001
 From: "Avi Halachmi (:avih)" <avihpit@yahoo.com>
 Date: Wed, 26 Dec 2018 14:51:45 +0200
 Subject: [PATCH 1/4] boxdraw_v2: custom render lines/blocks/braille for
@@ -543,10 +543,10 @@ index a1928ca..27e7050 100644
  extern unsigned int defaultbg;
 +extern const int boxdraw, boxdraw_bold, boxdraw_braille;
 diff --git a/x.c b/x.c
-index e000894..38d37e9 100644
+index 48a6676..507a0c3 100644
 --- a/x.c
 +++ b/x.c
-@@ -1165,6 +1165,8 @@ xinit(int cols, int rows)
+@@ -1190,6 +1190,8 @@ xinit(int cols, int rows)
  	xsel.xtarget = XInternAtom(xw.dpy, "UTF8_STRING", 0);
  	if (xsel.xtarget == None)
  		xsel.xtarget = XA_STRING;
@@ -555,7 +555,7 @@ index e000894..38d37e9 100644
  }
  
  int
-@@ -1211,8 +1213,13 @@ xmakeglyphfontspecs(XftGlyphFontSpec *specs, const Glyph *glyphs, int len, int x
+@@ -1236,8 +1238,13 @@ xmakeglyphfontspecs(XftGlyphFontSpec *specs, const Glyph *glyphs, int len, int x
  			yp = winy + font->ascent;
  		}
  
@@ -571,7 +571,7 @@ index e000894..38d37e9 100644
  		if (glyphidx) {
  			specs[numspecs].font = font->match;
  			specs[numspecs].glyph = glyphidx;
-@@ -1416,8 +1423,12 @@ xdrawglyphfontspecs(const XftGlyphFontSpec *specs, Glyph base, int len, int x, i
+@@ -1441,8 +1448,12 @@ xdrawglyphfontspecs(const XftGlyphFontSpec *specs, Glyph base, int len, int x, i
  	r.width = width;
  	XftDrawSetClipRectangles(xw.draw, winx, winy, &r, 1);
  
@@ -586,7 +586,7 @@ index e000894..38d37e9 100644
  
  	/* Render underline and strikethrough. */
  	if (base.mode & ATTR_UNDERLINE) {
-@@ -1460,7 +1471,7 @@ xdrawcursor(int cx, int cy, Glyph g, int ox, int oy, Glyph og)
+@@ -1485,7 +1496,7 @@ xdrawcursor(int cx, int cy, Glyph g, int ox, int oy, Glyph og)
  	/*
  	 * Select the right color for the right mode.
  	 */

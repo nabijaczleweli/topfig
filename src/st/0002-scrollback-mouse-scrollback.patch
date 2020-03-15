@@ -1,4 +1,4 @@
-From 82e973e9c665eba3e5cd6a9c10c409fda1e19ff8 Mon Sep 17 00:00:00 2001
+From be061c939c8bf93dd8aa605de666ba7192a62adc Mon Sep 17 00:00:00 2001
 From: nabijaczleweli <nabijaczleweli@gmail.com>
 Date: Sat, 11 Jan 2020 17:35:31 +0100
 Subject: [PATCH 2/4] scrollback + mouse scrollback
@@ -384,7 +384,7 @@ index 27e7050..2fc38bc 100644
  void tresize(int, int);
  void tsetdirtattr(int);
 diff --git a/x.c b/x.c
-index 38d37e9..b999b74 100644
+index 507a0c3..2fb932b 100644
 --- a/x.c
 +++ b/x.c
 @@ -34,6 +34,7 @@ typedef struct {
@@ -395,7 +395,7 @@ index 38d37e9..b999b74 100644
  } MouseShortcut;
  
  typedef struct {
-@@ -426,6 +427,7 @@ mouseaction(XEvent *e, uint release)
+@@ -431,6 +432,7 @@ mouseaction(XEvent *e, uint release)
  	for (ms = mshortcuts; ms < mshortcuts + LEN(mshortcuts); ms++) {
  		if (ms->release == release &&
  		    ms->button == e->xbutton.button &&
