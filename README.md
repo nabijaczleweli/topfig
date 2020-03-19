@@ -57,14 +57,16 @@ There's an open issue from 2018 in the dracut repository – [dracutdevs/dracut#
   but going by the stagnation and two separate maintainers saying swap files are a bad idea and/or doubting the kernel supports them,
   it will not be resolved any time soon,
 
+As of Tue, 03 Mar 2020 10:51:10 -0800, an equivalent patch has been [merged upstream](https://github.com/dracutdevs/dracut/pull/715).
+
 The diff present in [`src/dracut/debian_patches_resume-file`](src/dracut/debian_patches_resume-file) can be applied to `/usr/lib/dracut/modules.d/95resume/module-setup.sh` in order to also check for the presence of any swap-files activated in `/proc/swaps`.
 
 Alternatively, if you prefer, and are in the mood for building some packages, it can also be used in `debian/patches` – see [here](https://github.com/nabijaczleweli/dracut) for a clonable repo (and [Debian wiki](https://wiki.debian.org/PackagingWithGit) for building).
 
-If you aren't, see [the releases page](https://github.com/nabijaczleweli/dracut/releases/latest) for installable i386 and amd64 debs or add these repositories to your `sources.list`, signed with [my key](https://keybase.io/nabijaczleweli) (also available [here](https://foreign.nabijaczleweli.xyz/debian/nabijaczleweli.gpg.key)):
+If you aren't, see [the releases page](https://github.com/nabijaczleweli/dracut/releases/latest) for installable i386 and amd64 debs or add these repositories to your `sources.list`, signed with [my key](https://keybase.io/nabijaczleweli) (also available [here](https://debian.nabijaczleweli.xyz/nabijaczleweli.gpg.key)):
 
 ```
-deb https://foreign.nabijaczleweli.xyz/debian sid patches
+deb     https://foreign.nabijaczleweli.xyz/debian sid patches
 deb-src https://foreign.nabijaczleweli.xyz/debian sid patches
 ```
 
@@ -120,3 +122,14 @@ However, at the time of writing (2020-01-31 19:10:55), two issues prevent me fro
 
 [baba is uwu](https://wiittyusername.tumblr.com/post/183597057765/baba-is-uwu)-inspired grub colour scheme,
   [`boot/grub/baba-colour-background.png`](boot/grub/baba-colour-background.png) is a simple 10x10 solid-colour PNG picked from the background.
+
+
+### [`etc/dracut.conf.d/compression.conf`](etc/dracut.conf.d/compression.conf)
+
+Dracut compression setting, optimised for size (and the boot time ain't tee bag, either, but that's probably because of the incredibly speedy original Toshiba drive in this):
+
+```bash
+nabijaczleweli@nabtop:~/code/topfig$ l /boot/initrd.img-*
+-rwxr-xr-x 1 root root 9.3M Feb 11 20:49 /boot/initrd.img-5.4.0-3-686-pae
+-rwxr-xr-x 1 root root 9.2M Feb 14 04:04 /boot/initrd.img-5.4.0-4-686-pae
+```
