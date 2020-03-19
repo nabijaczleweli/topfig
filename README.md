@@ -114,3 +114,9 @@ However, at the time of writing (2020-01-31 19:10:55), two issues prevent me fro
 
 [![htop screenshot 1](screenshots/htop-647541072033218611.png)](https://raw.githubusercontent.com/nabijaczleweli/topfig/master/screenshots/htop-647541072033218611.png)
 [![htop screenshot 2](screenshots/htop-647540165316968467.png)](https://raw.githubusercontent.com/nabijaczleweli/topfig/master/screenshots/htop-647540165316968467.png)
+
+
+### [`boot/grub/custom.cfg`](boot/grub/custom.cfg)
+
+[baba is uwu](https://wiittyusername.tumblr.com/post/183597057765/baba-is-uwu)-inspired grub colour scheme,
+  [`boot/grub/baba-colour-background.png`](boot/grub/baba-colour-background.png) is a simple 10x10 solid-colour PNG picked from the background.

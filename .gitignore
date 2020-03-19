@@ -3,6 +3,8 @@
 !bin/**
 !src/
 !src/**
+!boot/
+!boot/**
 !.config/
 !.config/**
 !screenshots/
