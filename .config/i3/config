@@ -12,6 +12,7 @@ font pango:monospace 8
 exec --no-startup-id xset dpms 60 120 180
 exec --no-startup-id light-locker --idle-hint --late-locking --lock-after-screensaver=60
 exec --no-startup-id xss-lock -v -- idle-suspend 180000
+exec --no-startup-id xset s off
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status

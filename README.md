@@ -80,6 +80,13 @@ Wraps `i3status` in `i3bar` mode modifying the status line as follows:
   * the current power draw from `BAT1` at the end of its sexion
 
 
+### [`bin/oauth2`](bin/oauth2)
+
+Python 3 port of [Google's oauth2 script](https://github.com/google/gmail-oauth2-tools/blob/master/python/oauth2.py),
+  as referenced in [the mutt manual](http://www.mutt.org/doc/manual/#oauth),
+  following recent breakage on sid.
+
+
 ### [`.config/i3`](.config/i3), [`.config/i3status`](.config/i3status)
 
 i3 and i3status config, of note:
