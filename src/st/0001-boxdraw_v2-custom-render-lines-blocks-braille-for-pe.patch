@@ -1,4 +1,4 @@
-From e47ab98848d3b5eafa2057edd35d2543760207b2 Mon Sep 17 00:00:00 2001
+From 3039c683f4104fcad6639d883e5b77dc9c6ae14e Mon Sep 17 00:00:00 2001
 From: "Avi Halachmi (:avih)" <avihpit@yahoo.com>
 Date: Wed, 26 Dec 2018 14:51:45 +0200
 Subject: [PATCH 1/4] boxdraw_v2: custom render lines/blocks/braille for
@@ -474,10 +474,10 @@ index 0000000..7890500
 +	/* U+2571 - U+2573: unsupported (diagonals) */
 +};
 diff --git a/config.def.h b/config.def.h
-index 546edda..9470917 100644
+index 6f05dce..29db0f0 100644
 --- a/config.def.h
 +++ b/config.def.h
-@@ -56,6 +56,18 @@ static unsigned int blinktimeout = 800;
+@@ -67,6 +67,18 @@ static unsigned int blinktimeout = 800;
   */
  static unsigned int cursorthickness = 2;
  
@@ -497,10 +497,10 @@ index 546edda..9470917 100644
   * bell volume. It must be a value between -100 and 100. Use 0 for disabling
   * it
 diff --git a/st.c b/st.c
-index 3e48410..699f8f9 100644
+index 76b7e0d..248728f 100644
 --- a/st.c
 +++ b/st.c
-@@ -1217,6 +1217,9 @@ tsetchar(Rune u, Glyph *attr, int x, int y)
+@@ -1219,6 +1219,9 @@ tsetchar(Rune u, Glyph *attr, int x, int y)
  	term.dirty[y] = 1;
  	term.line[y][x] = *attr;
  	term.line[y][x].u = u;
@@ -511,7 +511,7 @@ index 3e48410..699f8f9 100644
  
  void
 diff --git a/st.h b/st.h
-index a1928ca..27e7050 100644
+index 3d351b6..8d26273 100644
 --- a/st.h
 +++ b/st.h
 @@ -33,6 +33,7 @@ enum glyph_attribute {
@@ -536,17 +536,17 @@ index a1928ca..27e7050 100644
 +
  /* config.h globals */
  extern char *utmp;
- extern char *stty_args;
-@@ -121,3 +130,4 @@ extern char *termname;
+ extern char *scroll;
+@@ -123,3 +132,4 @@ extern char *termname;
  extern unsigned int tabspaces;
  extern unsigned int defaultfg;
  extern unsigned int defaultbg;
 +extern const int boxdraw, boxdraw_bold, boxdraw_braille;
 diff --git a/x.c b/x.c
-index 48a6676..507a0c3 100644
+index 210f184..9b29264 100644
 --- a/x.c
 +++ b/x.c
-@@ -1190,6 +1190,8 @@ xinit(int cols, int rows)
+@@ -1205,6 +1205,8 @@ xinit(int cols, int rows)
  	xsel.xtarget = XInternAtom(xw.dpy, "UTF8_STRING", 0);
  	if (xsel.xtarget == None)
  		xsel.xtarget = XA_STRING;
@@ -555,7 +555,7 @@ index 48a6676..507a0c3 100644
  }
  
  int
-@@ -1236,8 +1238,13 @@ xmakeglyphfontspecs(XftGlyphFontSpec *specs, const Glyph *glyphs, int len, int x
+@@ -1251,8 +1253,13 @@ xmakeglyphfontspecs(XftGlyphFontSpec *specs, const Glyph *glyphs, int len, int x
  			yp = winy + font->ascent;
  		}
  
@@ -571,7 +571,7 @@ index 48a6676..507a0c3 100644
  		if (glyphidx) {
  			specs[numspecs].font = font->match;
  			specs[numspecs].glyph = glyphidx;
-@@ -1441,8 +1448,12 @@ xdrawglyphfontspecs(const XftGlyphFontSpec *specs, Glyph base, int len, int x, i
+@@ -1456,8 +1463,12 @@ xdrawglyphfontspecs(const XftGlyphFontSpec *specs, Glyph base, int len, int x, i
  	r.width = width;
  	XftDrawSetClipRectangles(xw.draw, winx, winy, &r, 1);
  
@@ -586,7 +586,7 @@ index 48a6676..507a0c3 100644
  
  	/* Render underline and strikethrough. */
  	if (base.mode & ATTR_UNDERLINE) {
-@@ -1485,7 +1496,7 @@ xdrawcursor(int cx, int cy, Glyph g, int ox, int oy, Glyph og)
+@@ -1500,7 +1511,7 @@ xdrawcursor(int cx, int cy, Glyph g, int ox, int oy, Glyph og)
  	/*
  	 * Select the right color for the right mode.
  	 */
@@ -596,5 +596,5 @@ index 48a6676..507a0c3 100644
  	if (IS_SET(MODE_REVERSE)) {
  		g.mode |= ATTR_REVERSE;
 -- 
-2.25.1
+2.27.0
 

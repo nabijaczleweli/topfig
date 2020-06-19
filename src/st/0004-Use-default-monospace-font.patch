@@ -1,4 +1,4 @@
-From 91390c364be16daaea38e2926f3a68e13a245192 Mon Sep 17 00:00:00 2001
+From a91bf1d9bf1ea6a660e63aebe04ba8ca424e6a0f Mon Sep 17 00:00:00 2001
 From: nabijaczleweli <nabijaczleweli@gmail.com>
 Date: Sat, 18 Jan 2020 19:11:37 +0100
 Subject: [PATCH 4/4] Use default monospace font
@@ -8,7 +8,7 @@ Subject: [PATCH 4/4] Use default monospace font
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/config.def.h b/config.def.h
-index 7cd4c2c..3a0aa69 100644
+index 8542a0b..7c92382 100644
 --- a/config.def.h
 +++ b/config.def.h
 @@ -5,7 +5,7 @@
@@ -21,5 +21,5 @@ index 7cd4c2c..3a0aa69 100644
  
  /*
 -- 
-2.25.1
+2.27.0
 
