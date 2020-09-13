@@ -1,0 +1,3 @@
+# /etc/dpkg/dpkg.cfg.d/ignore-fake-helvetica: remove the non-Helvetica Helvetica-reporting font
+
+path-exclude=/usr/share/fonts/X11/*dpi/helv*.pcf.gz

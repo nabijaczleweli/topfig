@@ -11,5 +11,6 @@
 !.config/**
 !screenshots/
 !screenshots/**
+!dpkg-*
 !.git*
 !README.md
