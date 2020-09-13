@@ -1,0 +1,4 @@
+# /etc/dpkg/dpkg.cfg.d/ignore-fake-fonts: remove the non-Helvetica/Courier Helvetica/Courier-reporting font
+
+path-exclude=/usr/share/fonts/X11/*dpi/helv*.pcf.gz
+path-exclude=/usr/share/fonts/X11/*dpi/cour*.pcf.gz
