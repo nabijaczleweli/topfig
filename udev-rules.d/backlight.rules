@@ -1,0 +1,4 @@
+# https://wiki.archlinux.org/index.php/Backlight
+
+ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="acpi_video*", RUN+="/bin/chgrp video /sys/class/backlight/%k/brightness"
+ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="acpi_video*", RUN+="/bin/chmod g+w   /sys/class/backlight/%k/brightness"

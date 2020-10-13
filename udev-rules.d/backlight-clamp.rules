@@ -1,0 +1,3 @@
+# See systemd-backlight manpage
+# https://www.freedesktop.org/software/systemd/man/udev.html
+DEVPATH=="/devices/pci0000:00/0000:00:02.0/backlight/acpi_video0", ENV{ID_BACKLIGHT_CLAMP}="false"

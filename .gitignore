@@ -9,6 +9,8 @@
 !boot/**
 !.config/
 !.config/**
+!udev-rules.d/
+!udev-rules.d/**
 !screenshots/
 !screenshots/**
 !dpkg-*

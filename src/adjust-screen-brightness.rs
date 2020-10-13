@@ -1,6 +1,6 @@
 //! rustc adjust-screen-brightness.rs
 //! sudo install -g0 -o0 -s -t /usr/local/bin adjust-screen-brightness
-//! sudo chmod u+s /usr/local/bin/adjust-screen-brightness
+//! if running without backlight.rules: sudo chmod u+s /usr/local/bin/adjust-screen-brightness
 
 
 use std::{env, fs};

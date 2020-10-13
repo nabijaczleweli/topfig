@@ -175,9 +175,9 @@ bindsym $mod+Pause mode "$mode_system"
 
 workspace_auto_back_and_forth yes
 
-bindsym $alt+Control+Sys_Req exec --no-startup-id scrot -zsf 'screenshots/%F-%T-$a-$wx$h.png'
-bindsym         $alt+Sys_Req exec --no-startup-id scrot -zb  'screenshots/%F-%T-$a-$wx$h.png'
-bindsym                Print exec --no-startup-id scrot -z   'screenshots/%F-%T-$a-$wx$h.png'
+bindsym $alt+Sys_Req exec --no-startup-id scrot -zfsb 'screenshots/%F-%T-$a-$wx$h.png'
+bindsym  Shift+Print exec --no-startup-id scrot -zo   '/tmp/screenshot.png'            -e 'xclip -selection clipboard -t image/png -i $f'
+bindsym        Print exec --no-startup-id scrot -z    'screenshots/%F-%T-$a-$wx$h.png'
 
 # keycode 244 (keysym 0x1008ff93, XF86Battery), same_screen YES,
 bindsym XF86ScreenSaver exec --no-startup-id loginctl lock-session
