@@ -146,10 +146,13 @@ bar {
 }
 
 
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus       scratchpad show
+
 #bindsym $alt+Tab workspace       next_on_output
 #bindsym $alt+Shift+Tab workspace prev_on_output
-bindsym $mod+Tab workspace       next_on_output
-bindsym $mod+Shift+Tab workspace prev_on_output
+#bindsym $mod+Tab workspace       next_on_output
+#bindsym $mod+Shift+Tab workspace prev_on_output
 # bindsym $alt+Tab focus right
 # bindsym $alt+Shift+Tab focus left
 # exec --no-startup-id volctl
