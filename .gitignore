@@ -1,6 +1,8 @@
 *
 !bin/
 !bin/**
+!sbin/
+!sbin/**
 !etc/
 !etc/**
 !src/

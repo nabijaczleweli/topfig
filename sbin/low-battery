@@ -1,0 +1,7 @@
+#!/bin/bash
+
+who | awk '/\(:/ {printf $1 " "; system("id -u " $1)}' | awk '{system("sudo -u " $1 " DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/" $2 "/bus notify-send -u critical \"Battery critical\" \"Hibernating in 30 seconds\"")}'
+
+sleep 30
+
+systemctl hibernate
