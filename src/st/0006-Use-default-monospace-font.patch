@@ -1,14 +1,15 @@
-From bf35027722fe1fda94d3c25e4c867c882f21a8c0 Mon Sep 17 00:00:00 2001
+From a17efd6ba2c43dfbc954807a24c841c051524d99 Mon Sep 17 00:00:00 2001
 From: nabijaczleweli <nabijaczleweli@gmail.com>
 Date: Sat, 18 Jan 2020 19:11:37 +0100
-Subject: [PATCH 4/5] Use default monospace font
+Subject: [PATCH 6/7] Use default monospace font
+X-Mutt-PGP: OS
 
 ---
  config.def.h | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/config.def.h b/config.def.h
-index 8542a0b..7c92382 100644
+index 913c371..a982097 100644
 --- a/config.def.h
 +++ b/config.def.h
 @@ -5,7 +5,7 @@
@@ -17,9 +18,9 @@ index 8542a0b..7c92382 100644
   */
 -static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
 +static char *font = "monospace:pixelsize=12:antialias=true:autohint=true";
- static int borderpx = 2;
- 
- /*
+ /* Spare fonts */
+ static char *font2[] = {
+ };
 -- 
-2.20.1
+2.34.1
 

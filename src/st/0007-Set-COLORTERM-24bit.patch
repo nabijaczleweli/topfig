@@ -1,0 +1,30 @@
+From c6d34b3d6c23b95f4d9da620edb9f0fc0275f873 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?=D0=BD=D0=B0=D0=B1?= <nabijaczleweli@nabijaczleweli.xyz>
+Date: Mon, 10 Jan 2022 20:33:28 +0100
+Subject: [PATCH 7/7] Set COLORTERM=24bit
+X-Mutt-PGP: OS
+
+Ideally, we'd respond to DCS XTGETTCAP, but st doesn't handle those at
+all
+
+https://nick-black.com/htp-notcurses.pdf
+https://github.com/dankamongmen/notcurses/issues/4
+---
+ st.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/st.c b/st.c
+index 8764c87..2023818 100644
+--- a/st.c
++++ b/st.c
+@@ -713,6 +713,7 @@ execsh(char *cmd, char **args)
+ 	setenv("SHELL", sh, 1);
+ 	setenv("HOME", pw->pw_dir, 1);
+ 	setenv("TERM", termname, 1);
++	setenv("COLORTERM", "24bit", 1);
+ 
+ 	signal(SIGCHLD, SIG_DFL);
+ 	signal(SIGHUP, SIG_DFL);
+-- 
+2.34.1
+
