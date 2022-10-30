@@ -1,4 +1,4 @@
-From 61e6da837f61507aeb161cf1a743bdb0b76499ec Mon Sep 17 00:00:00 2001
+From cad8e8a3c9b239469284ae5765080109dc7618ec Mon Sep 17 00:00:00 2001
 From: Kirill Bugaev <kirill.bugaev87@gmail.com>
 Date: Tue, 16 Apr 2019 04:31:30 +0800
 Subject: [PATCH 5/7] Apply "st-font2" patch
@@ -28,7 +28,7 @@ index 28c0ec4..913c371 100644
  
  /*
 diff --git a/x.c b/x.c
-index 0b1037d..528efb6 100644
+index 811f18a..5842fb1 100644
 --- a/x.c
 +++ b/x.c
 @@ -158,6 +158,8 @@ static void xhints(void);
@@ -161,5 +161,5 @@ index 0b1037d..528efb6 100644
  	xw.cmap = XDefaultColormap(xw.dpy, xw.scr);
  	xloadcols();
 -- 
-2.34.1
+2.30.2
 
