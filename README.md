@@ -1,5 +1,5 @@
 # topfig [![Licence](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
-Assorted config/tooling/lube from the [nabtop](https://twitter.com/nabijaczleweli/status/1213277562434142211)
+Assorted config/tooling/lube from the [nabtop](https://lfs.nabijaczleweli.xyz/0017-twitter-export#1213277562434142211)
 
 
 ### [`src/adjust-screen-brightness.rs`](src/adjust-screen-brightness.rs)
