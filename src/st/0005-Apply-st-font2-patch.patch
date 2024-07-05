@@ -1,4 +1,4 @@
-From cad8e8a3c9b239469284ae5765080109dc7618ec Mon Sep 17 00:00:00 2001
+From ff008dc4173cd2f0e299fa4e7dea1ecd260269fa Mon Sep 17 00:00:00 2001
 From: Kirill Bugaev <kirill.bugaev87@gmail.com>
 Date: Tue, 16 Apr 2019 04:31:30 +0800
 Subject: [PATCH 05/11] Apply "st-font2" patch
@@ -13,7 +13,7 @@ Also fix whitespace errors and clean out suggestions
  2 files changed, 105 insertions(+)
 
 diff --git a/config.def.h b/config.def.h
-index 28c0ec4..913c371 100644
+index 3eebab1..fc992bb 100644
 --- a/config.def.h
 +++ b/config.def.h
 @@ -6,6 +6,10 @@
@@ -28,7 +28,7 @@ index 28c0ec4..913c371 100644
  
  /*
 diff --git a/x.c b/x.c
-index 811f18a..5842fb1 100644
+index b3d01f9..11a4dbb 100644
 --- a/x.c
 +++ b/x.c
 @@ -158,6 +158,8 @@ static void xhints(void);
