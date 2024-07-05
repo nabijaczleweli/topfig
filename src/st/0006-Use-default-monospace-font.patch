@@ -1,7 +1,7 @@
 From 64e28501b87316ef0f35a07819843e1e6732b6bf Mon Sep 17 00:00:00 2001
 From: nabijaczleweli <nabijaczleweli@gmail.com>
 Date: Sat, 18 Jan 2020 19:11:37 +0100
-Subject: [PATCH 6/7] Use default monospace font
+Subject: [PATCH 06/11] Use default monospace font
 X-Mutt-PGP: OS
 
 ---
@@ -22,5 +22,5 @@ index 913c371..a982097 100644
  static char *font2[] = {
  };
 -- 
-2.30.2
+2.39.2
 

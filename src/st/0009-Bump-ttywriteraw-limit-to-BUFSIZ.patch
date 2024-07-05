@@ -1,11 +1,9 @@
 From ce8803d2ec3a4045ccdc07cd8eed82dcfff637f4 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?=D0=BD=D0=B0=D0=B1?= <nabijaczleweli@nabijaczleweli.xyz>
 Date: Tue, 11 Apr 2023 15:41:01 +0200
-Subject: [PATCH] Bump ttywriteraw() limit to BUFSIZ
+Subject: [PATCH 09/11] Bump ttywriteraw() limit to BUFSIZ
 X-Mutt-PGP: OS
 
-There doesn't appear to be a realistic reason to go any smaller than
-this.
 ---
  st.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
@@ -24,5 +22,5 @@ index 6a9df62..31c4f84 100644
  	/*
  	 * Remember that we are using a pty, which might be a modem line.
 -- 
-2.30.2
+2.39.2
 

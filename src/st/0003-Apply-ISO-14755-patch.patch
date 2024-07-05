@@ -1,7 +1,7 @@
 From 4b76e2e8431e0dc6099ed7db3926e4800732b9ac Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?=D0=BD=D0=B0=D0=B1?= <nabijaczleweli@gmail.com>
 Date: Fri, 19 Jun 2020 16:59:42 +0200
-Subject: [PATCH 3/7] Apply ISO 14755 patch
+Subject: [PATCH 03/11] Apply ISO 14755 patch
 X-Mutt-PGP: OS
 
 https://st.suckless.org/patches/iso14755/st-iso14755-0.8.3.diff
@@ -42,7 +42,7 @@ diff --git a/st.1 b/st.1
 index 39120b4..4a98626 100644
 --- a/st.1
 +++ b/st.1
-@@ -159,6 +159,10 @@ Copy the selected text to the clipboard selection.
+@@ -159,6 +159,10 @@ .SH SHORTCUTS
  .TP
  .B Ctrl-Shift-v
  Paste from the clipboard selection.
@@ -104,5 +104,5 @@ index 2ed6abd..9dba57d 100644
  extern const int boxdraw, boxdraw_bold, boxdraw_braille;
 +extern const char *iso14755_cmd;
 -- 
-2.30.2
+2.39.2
 
