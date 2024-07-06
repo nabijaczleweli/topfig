@@ -1,0 +1,26 @@
+From c8833145dd0713187946ee2f0d6636e855a3e5fc Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?=D0=BD=D0=B0=D0=B1?= <nabijaczleweli@nabijaczleweli.xyz>
+Date: Sat, 6 Jul 2024 06:05:14 +0200
+Subject: [PATCH] : word delimiter grep my beloved
+X-Mutt-PGP: OS
+
+---
+ config.def.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/config.def.h b/config.def.h
+index 5bf8132..29faffd 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -38,7 +38,7 @@ static float chscale = 1.0;
+  *
+  * More advanced example: L" `'\"()[]{}"
+  */
+-wchar_t *worddelimiters = L" ";
++wchar_t *worddelimiters = L" :";
+ 
+ /* selection timeouts (in milliseconds) */
+ static unsigned int doubleclicktimeout = 300;
+-- 
+2.39.2
+
