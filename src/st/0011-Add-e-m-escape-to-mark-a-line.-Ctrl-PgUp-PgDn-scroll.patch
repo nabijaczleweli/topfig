@@ -1,12 +1,17 @@
 From eed328240d04caedfaeef83342cf219758e20ded Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?=D0=BD=D0=B0=D0=B1?= <nabijaczleweli@nabijaczleweli.xyz>
 Date: Sat, 6 Jul 2024 01:00:30 +0200
-Subject: [PATCH 11/11] Add \e[ m escape to mark a line. Ctrl+PgUp/+PgDn scroll
+Subject: [PATCH 11/11] Add PS1="$PS1\[\e[ m\]" escape to mark a line. Ctrl+PgUp/+PgDn scroll
  to marked lines
 X-Mutt-PGP: OS
 
 Primarily useful for C++ enthusiasts so if you get a megabyte of errors
 you can go back to the first one
+
+.bashrc:
+  case "$TERM" in
+    st*) PS1="$PS1\[\e[ m\]";;
+  esac
 
 Ref: https://101010.pl/@atax1a@infosec.exchange/112734806523834451
 ---
