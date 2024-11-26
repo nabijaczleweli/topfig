@@ -1,7 +1,7 @@
 From 275d0b750dc56c3ba4b2dd7a82c7f492eb25caa3 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?=D0=BD=D0=B0=D0=B1?= <nabijaczleweli@nabijaczleweli.xyz>
 Date: Sat, 6 Jul 2024 00:56:26 +0200
-Subject: [PATCH 10/11] Fix scrollback patch to also affect tdumpline()
+Subject: [PATCH 10/13] Fix scrollback patch to also affect tdumpline()
  correctly
 X-Mutt-PGP: OS
 
@@ -23,5 +23,5 @@ index 936bfb7..ddd14c1 100644
  	if (bp != end || bp->u != ' ') {
  		for ( ; bp <= end; ++bp)
 -- 
-2.39.2
+2.39.5
 

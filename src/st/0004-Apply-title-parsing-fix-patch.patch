@@ -1,7 +1,7 @@
 From 33e6fdf0acd564077782bf26339cb79cdfd9dd22 Mon Sep 17 00:00:00 2001
 From: Ashish Kumar Yadav <ashishkumar.yadav@students.iiserpune.ac.in>
 Date: Wed, 4 Aug 2021 18:21:01 +0530
-Subject: [PATCH 04/11] Apply "title parsing fix" patch
+Subject: [PATCH 04/13] Apply "title parsing fix" patch
 X-Mutt-PGP: OS
 
 https://st.suckless.org/patches/title_parsing_fix/st-title_parsing_fix-0.8.4.diff
@@ -123,5 +123,5 @@ index 56f202b..a140a90 100644
  }
  
 -- 
-2.39.2
+2.39.5
 

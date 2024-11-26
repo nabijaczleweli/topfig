@@ -1,7 +1,7 @@
 From 1aa035c8f0a9bd7bb64f08a5f953772dcd265359 Mon Sep 17 00:00:00 2001
 From: "Avi Halachmi (:avih)" <avihpit@yahoo.com>
 Date: Wed, 26 Dec 2018 14:51:45 +0200
-Subject: [PATCH 01/11] boxdraw_v2: custom render lines/blocks/braille for
+Subject: [PATCH 01/13] boxdraw_v2: custom render lines/blocks/braille for
  perfect alignment
 X-Mutt-PGP: OS
 
@@ -599,5 +599,5 @@ index bd23686..978a8fc 100644
  	if (IS_SET(MODE_REVERSE)) {
  		g.mode |= ATTR_REVERSE;
 -- 
-2.39.2
+2.39.5
 

@@ -1,0 +1,49 @@
+From d4f2e3c05a3c718dd41f50a341385afd32a4e117 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?=D0=BD=D0=B0=D0=B1?= <nabijaczleweli@nabijaczleweli.xyz>
+Date: Tue, 26 Nov 2024 22:08:30 +0100
+Subject: [PATCH 13/13] Allow entering "totmux" to iso14755() to gift
+ (reparent) session to tmux by running tmux -g cmdfd -- new-window -s
+X-Mutt-PGP: OS
+
+https://github.com/tmux/tmux/pull/4274
+---
+ st.1 | 5 +++++
+ st.c | 6 ++++++
+ 2 files changed, 11 insertions(+)
+
+diff --git a/st.1 b/st.1
+index 4a98626..45a4151 100644
+--- a/st.1
++++ b/st.1
+@@ -163,6 +163,11 @@ .SH SHORTCUTS
+ .B Ctrl-Shift-i
+ Launch dmenu to enter a unicode codepoint and send the corresponding glyph
+ to st.
++.PP
++Answer
++.B totmux
++to gift the session to
++.BR tmux (1).
+ .SH CUSTOMIZATION
+ .B st
+ can be customized by creating a custom config.h and (re)compiling the source
+diff --git a/st.c b/st.c
+index 353d6c6..d46eb3d 100644
+--- a/st.c
++++ b/st.c
+@@ -2173,6 +2173,12 @@ iso14755(const Arg *arg)
+ 	us = fgets(codepoint, sizeof(codepoint), p);
+ 	pclose(p);
+ 
++	if (us && !strcmp(us, "totmux\n") && !fork()) {
++		snprintf(codepoint, sizeof(codepoint), "%d", cmdfd);
++		_exit(execlp("tmux", "tmux", "-g", codepoint, "--", "new-window", "-s", (char *)NULL));
++		return;
++	}
++
+ 	if (!us || *us == '\0' || *us == '-' || strlen(us) > 7)
+ 		return;
+ 	if ((utf32 = strtoul(us, &e, 16)) == ULONG_MAX ||
+-- 
+2.39.5
+
